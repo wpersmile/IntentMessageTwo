@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,OtherActivity.class);
-                intent.putExtra("name","大哥");
+                intent.putExtra("name","大黄");
                 intent.putExtra("age",20);
+                //startActivityForResult(Intent intent, int requestCode)
                 startActivityForResult(intent,0);
             }
         });
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==0 && resultCode==0){
+        if(requestCode==0 && resultCode==-1){
             String str=data.getStringExtra("result");
             Toast.makeText(this,str,Toast.LENGTH_LONG).show();
         }
